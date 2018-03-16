@@ -3,3 +3,10 @@
 ################################################################################
 
 /.vs
+/Analyzer1/Analyzer1/bin
+/Analyzer1/Analyzer1/obj
+/Analyzer1/Analyzer1.Test/bin
+/Analyzer1/Analyzer1.Test/obj
+/Analyzer1/Analyzer1.Vsix/bin
+/Analyzer1/Analyzer1.Vsix/obj
+/packages
