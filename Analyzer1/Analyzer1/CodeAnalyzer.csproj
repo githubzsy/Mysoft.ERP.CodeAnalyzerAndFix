@@ -35,8 +35,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ERP-Spec\CommonHelper.cs" />
+    <Compile Include="ERP-Spec\代码扫描\C00004\DiagnosticAnalyzerC00004.cs" />
+    <Compile Include="ERP-Spec\代码扫描\C00011\DiagnosticAnalyzerC00011.cs" />
+    <Compile Include="ERP-Spec\代码扫描\C00027\DiagnosticAnalyzerC00027.cs" />
     <Compile Include="ERP-Spec\ERP特殊规范\RM0015\CodeFixProvider.cs" />
     <Compile Include="ERP-Spec\ERP特殊规范\RM0015\DiagnosticAnalyzer.cs" />
+    <Compile Include="ERP-Spec\程序集扫描\R00025\DiagnosticAnalyzerR00025.cs" />
+    <Compile Include="ERP-Spec\ERP特殊规范\RM0029\DiagnosticAnalyzerRM0029.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +126,7 @@
     <Folder Include="ERP-Spec\ERP特殊规范\RM0016\" />
     <Folder Include="ERP-Spec\ERP特殊规范\RM0017\" />
     <Folder Include="ERP-Spec\ERP特殊规范\RM0018\" />
+    <Folder Include="ERP-Spec\程序集扫描\RM0029\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Target Name="AfterBuild">
