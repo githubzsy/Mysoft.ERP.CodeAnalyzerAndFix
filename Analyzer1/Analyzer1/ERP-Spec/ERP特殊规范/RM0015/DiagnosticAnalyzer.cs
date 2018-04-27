@@ -31,13 +31,15 @@ namespace CodeAnalyzer
 
         private static void AnalyzeSymbol(SymbolAnalysisContext context)
         {
-            var methodSymbol = (IMethodSymbol) context.Symbol;
+            var methodSymbol = (IMethodSymbol)context.Symbol;
 
-            var attributeDatas = methodSymbol.GetAttributes();
+            //var attributeDatas = methodSymbol.GetAttributes();
 
-            if (methodSymbol.ContainingType.BaseType != null &&
-                methodSymbol.ContainingType.BaseType.Name == "AppService" &&
-                attributeDatas.Any(x => x.AttributeClass.Name == "ActionDescriptionAttribute") == false)
+            //if (methodSymbol.ContainingType.BaseType != null &&
+            //    methodSymbol.ContainingType.BaseType.Name == "AppService" &&
+            //    attributeDatas.Any(x => x.AttributeClass.Name == "ActionDescriptionAttribute") == false)
+            //{
+            if (methodSymbol.Name.EndsWith("AppService"))
             {
                 //methodSymbol.ContainingType.BaseType!=null && methodSymbol.ContainingType.BaseType
 
