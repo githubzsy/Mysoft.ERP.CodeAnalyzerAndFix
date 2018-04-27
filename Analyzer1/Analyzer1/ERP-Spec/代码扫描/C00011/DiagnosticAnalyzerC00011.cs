@@ -61,7 +61,7 @@ namespace CodeAnalyzer
         {
             var method = context.Node as MethodDeclarationSyntax;
 
-            if (method != null && method.Body.Statements.Count > 0)
+            if (method?.Body != null && method.Body.Statements.Count > 0)
             {
                 foreach (var statementSyntax in method.Body.Statements)
                 {

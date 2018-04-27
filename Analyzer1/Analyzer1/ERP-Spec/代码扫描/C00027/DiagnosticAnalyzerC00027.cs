@@ -39,7 +39,7 @@ namespace CodeAnalyzer
         /// <summary>
         /// 错误描述
         /// </summary>
-        private static readonly string Description = "代码扫描>SPEC:C00027; 每个方法体不允许大于50行（有效代码）";
+        private static readonly string Description = "代码扫描>SPEC:C00027; 每个方法体不允许大于50行（有效代码）,当前代码已经有{0}";
         /// <summary>
         /// 校验规则
         /// </summary>
@@ -60,9 +60,9 @@ namespace CodeAnalyzer
         {
             var method = context.Node as MethodDeclarationSyntax;
 
-            if (method != null && method.Body.Statements.Count > 50)
+            if (method?.Body != null && method.Body.Statements.Count > 50)
             {
-                var diagnostic = Diagnostic.Create(Rule, method.Body.Statements[method.Body.Statements.Count -1].GetLocation(), method.Identifier.Text);
+                var diagnostic = Diagnostic.Create(Rule, method.Body.Statements[method.Body.Statements.Count -1].GetLocation(), method.Body.Statements.Count);
                 context.ReportDiagnostic(diagnostic);
             }
         }

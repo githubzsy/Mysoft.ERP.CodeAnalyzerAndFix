@@ -56,7 +56,7 @@ namespace CodeAnalyzer
         private void AnalyzeSymbol(SymbolAnalysisContext context)
         {
             var methodSymbol = (IMethodSymbol)context.Symbol;
-            var baseType = methodSymbol.ContainingType.BaseType;
+            var baseType = methodSymbol?.ContainingType.BaseType;
             if (baseType != null && baseType.Name == "AppService" && methodSymbol.IsVirtual == false)
             {
                 var diagnostic = Diagnostic.Create(Rule, methodSymbol.Locations[0], methodSymbol.Name);
