@@ -37,6 +37,7 @@
     <Compile Include="ERP-Spec\CommonHelper.cs" />
     <Compile Include="ERP-Spec\ERP特殊规范\RM0015\CodeFixProvider.cs" />
     <Compile Include="ERP-Spec\ERP特殊规范\RM0015\DiagnosticAnalyzer.cs" />
+    <Compile Include="ERP-Spec\程序集扫描\R00016\DiagnosticAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
