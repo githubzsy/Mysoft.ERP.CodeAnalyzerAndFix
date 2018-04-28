@@ -12,7 +12,7 @@ namespace CodeAnalyzer
 
         private const string Category = "ERP特殊规范";
 
-        private static readonly string Title = "61.CodeAnalyzer.SPEC:RM0015";
+        private static readonly string Title = "CodeAnalyzer.SPEC:RM0015";
 
         private static readonly string MessageFormat = "AppService的方法\"{0}\"必须用[ActionDescription]标记";
 
