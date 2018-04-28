@@ -8,6 +8,7 @@ using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Text;
 
 namespace CodeAnalyzer
 {
@@ -43,19 +44,19 @@ namespace CodeAnalyzer
                 diagnostic);
         }
 
-        private async Task<Document> MakeUppercaseAsync(Document document,
-            MethodDeclarationSyntax methodDeclarationSyntax, CancellationToken cancellationToken)
+        private async Task<Document> MakeUppercaseAsync(Document document, MethodDeclarationSyntax methodDeclarationSyntax, CancellationToken cancellationToken)
         {
             //获取目标方法
 
             var attributeLists = methodDeclarationSyntax.AttributeLists;
 
             var attributeListSyntax = SyntaxFactory.AttributeList(SyntaxFactory.SingletonSeparatedList(
-                SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("ActionDescription"))));
+                SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("ActionDescription"))));  
+
+            var attr = SourceText.From("[ActionDescription(\"\",\"00\")]");
 
             var newMethodDeclarationSyntax =
                 methodDeclarationSyntax.WithAttributeLists(attributeLists.Add(attributeListSyntax));
-
 
             var root = await document.GetSyntaxRootAsync(cancellationToken);
             var newRoot = root.ReplaceNode(methodDeclarationSyntax, newMethodDeclarationSyntax);

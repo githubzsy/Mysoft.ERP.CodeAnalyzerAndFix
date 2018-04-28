@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>Analyzer1</id>
+    <id>Mysoft.ERP.CodeAnalyzerAndFix</id>
     <version>1.0.0.0</version>
-    <title>Analyzer1</title>
+    <title>Mysoft.ERP.CodeAnalyzerAndFix</title>
     <authors>liuy20</authors>
     <owners>liuy20</owners>
     <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
     <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
     <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Analyzer1</description>
+    <description>明源ERP代码诊断和辅助修复工具</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>Copyright</copyright>
     <tags>Analyzer1, analyzers</tags>

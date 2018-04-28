@@ -58,7 +58,7 @@ namespace CodeAnalyzer
 
         private void AnalyzeSymbol(SyntaxNodeAnalysisContext context)
         {
-            var method = context.Node as MethodDeclarationSyntax;
+            var method = (MethodDeclarationSyntax) context.Node;
 
             if (method != null && method.Body.Statements.Count > 50)
             {

@@ -14,7 +14,7 @@ namespace CodeAnalyzer
 
         private static readonly string Title = "61.CodeAnalyzer.SPEC:RM0015";
 
-        private static readonly string MessageFormat = "AppService的方法\"{0}\"必须用[ActionDescription]标记";
+        private static readonly string MessageFormat = "AppService的方法必须用[ActionDescription]标记";
 
         private static readonly string Description = "ERP特殊规范>SPEC:RM0015;AppService的方法必须用[ActionDescription]标记";
 
@@ -33,13 +33,13 @@ namespace CodeAnalyzer
         {
             var methodSymbol = (IMethodSymbol)context.Symbol;
 
-            //var attributeDatas = methodSymbol.GetAttributes();
+            var attributeDatas = methodSymbol.GetAttributes();
 
             //if (methodSymbol.ContainingType.BaseType != null &&
             //    methodSymbol.ContainingType.BaseType.Name == "AppService" &&
             //    attributeDatas.Any(x => x.AttributeClass.Name == "ActionDescriptionAttribute") == false)
             //{
-            if (methodSymbol.Name.EndsWith("AppService"))
+            if (methodSymbol.ContainingType.Name.EndsWith("AppService") && attributeDatas.Any(x => x.AttributeClass.Name == "ActionDescriptionAttribute") == false)
             {
                 //methodSymbol.ContainingType.BaseType!=null && methodSymbol.ContainingType.BaseType
 
