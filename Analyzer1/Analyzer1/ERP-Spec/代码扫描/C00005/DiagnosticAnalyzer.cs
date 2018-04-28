@@ -12,7 +12,7 @@ namespace CodeAnalyzer.代码扫描.C00005
 
         private const string Category = "代码扫描";
 
-        private static readonly string Title = "CodeAnalyzer.SPEC:C00005";
+        private static readonly string Title = "61.CodeAnalyzer.SPEC:C00005";
 
         private static readonly string MessageFormat = "产品代码禁止设计成静态成员，除非工具方法:{0}";
 
