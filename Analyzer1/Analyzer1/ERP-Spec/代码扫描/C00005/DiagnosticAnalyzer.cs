@@ -14,7 +14,7 @@ namespace CodeAnalyzer.代码扫描.C00005
 
         private static readonly string Title = "61.CodeAnalyzer.SPEC:C00005";
 
-        private static readonly string MessageFormat = "产品代码禁止设计成静态成员，除非工具方法:{0}";
+        private static readonly string MessageFormat = "产品代码禁止设计成静态成员，除非工具方法";
 
         private static readonly string Description = "代码扫描>SPEC:C00005;产品代码禁止设计成静态成员，除非工具方法";
 
