@@ -1,6 +1,8 @@
 using System.Collections.Immutable;
 using System.Linq;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace CodeAnalyzer
@@ -39,7 +41,10 @@ namespace CodeAnalyzer
             //    methodSymbol.ContainingType.BaseType.Name == "AppService" &&
             //    attributeDatas.Any(x => x.AttributeClass.Name == "ActionDescriptionAttribute") == false)
             //{
-            if (methodSymbol.ContainingType.Name.EndsWith("AppService") && attributeDatas.Any(x => x.AttributeClass.Name == "ActionDescriptionAttribute") == false)
+            if (methodSymbol.DeclaredAccessibility == Accessibility.Public &&
+                methodSymbol.ContainingType.Name.EndsWith("AppService") &&
+                attributeDatas.Any(x => x.AttributeClass.Name == "ActionDescriptionAttribute") == false &&
+                attributeDatas.Any(x => x.AttributeClass.Name == "ForbidHttpAttribute") == false)
             {
                 //methodSymbol.ContainingType.BaseType!=null && methodSymbol.ContainingType.BaseType
 
