@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Immutable;
-using System.Linq;
+﻿using System.Collections.Immutable;
 using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -46,7 +44,7 @@ namespace CodeAnalyzer
         /// </summary>
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
             Category, DiagnosticSeverity.Error, true, Description,
-            CommonHelper.helpLinkUri);
+            CommonHelper.HelpLinkUri);
 
         /// <summary>
         /// Called once at session start to register actions in the analysis context.
@@ -65,7 +63,7 @@ namespace CodeAnalyzer
             {
                 foreach (var statementSyntax in method.Body.Statements)
                 {
-                    if (Regex.IsMatch(statementSyntax.GetText().ToString(), @"if\s?\(!\w+") == true)
+                    if (Regex.IsMatch(statementSyntax.GetText().ToString(), @"!(\w|\()"))
                     {
                         var diagnostic = Diagnostic.Create(Rule, statementSyntax.GetLocation(), method.Identifier.Text);
                         context.ReportDiagnostic(diagnostic);

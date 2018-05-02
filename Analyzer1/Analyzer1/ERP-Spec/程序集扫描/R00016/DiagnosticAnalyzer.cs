@@ -20,7 +20,7 @@ namespace CodeAnalyzer.≥Ã–ÚºØ…®√Ë.R00016
 
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
             Category, DiagnosticSeverity.Error, true, Description,
-            CommonHelper.helpLinkUri);
+            CommonHelper.HelpLinkUri);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
 

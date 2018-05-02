@@ -8,18 +8,17 @@ using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.Text;
 
-namespace CodeAnalyzer
+namespace CodeAnalyzer.ERP特殊规范.RM0015
 {
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(Rm0015CodeFixProvider))]
     [Shared]
     public class Rm0015CodeFixProvider : CodeFixProvider
     {
-        private const string title = "添加[ActionDescription]标记";
+        private const string Title = "添加[ActionDescription]标记";
 
         public sealed override ImmutableArray<string> FixableDiagnosticIds =>
-            ImmutableArray.Create(Rm0015Analyzer.DiagnosticId);
+            ImmutableArray.Create(Rm0015DiagnosticAnalyzer.DiagnosticId);
 
         public sealed override FixAllProvider GetFixAllProvider()
         {
@@ -38,9 +37,9 @@ namespace CodeAnalyzer
 
             context.RegisterCodeFix(
                 CodeAction.Create(
-                    title,
+                    Title,
                     c => MakeUppercaseAsync(context.Document, declaration, c),
-                    title),
+                    Title),
                 diagnostic);
         }
 
@@ -53,7 +52,7 @@ namespace CodeAnalyzer
             var attributeListSyntax = SyntaxFactory.AttributeList(SyntaxFactory.SingletonSeparatedList(
                 SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("ActionDescription"))));  
 
-            var attr = SourceText.From("[ActionDescription(\"\",\"00\")]");
+            //var attr = SourceText.From("[ActionDescription(\"\",\"00\")]");
 
             var newMethodDeclarationSyntax =
                 methodDeclarationSyntax.WithAttributeLists(attributeLists.Add(attributeListSyntax));

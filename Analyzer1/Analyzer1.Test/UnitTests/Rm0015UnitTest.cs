@@ -1,15 +1,14 @@
-﻿using System;
+﻿using CodeAnalyzer.ERP特殊规范.RM0015;
 using CodeAnalyzer.Test.Helpers;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CodeFixVerifier = CodeAnalyzer.Test.Verifiers.CodeFixVerifier;
 
-namespace CodeAnalyzer.Test
+namespace CodeAnalyzer.Test.UnitTests
 {
     [TestClass]
-    public class UnitTest : CodeFixVerifier
+    public class Rm0015UnitTest : Helpers.Verifiers.CodeFixVerifier
     {
 
         //No diagnostics expected to show up
@@ -35,38 +34,41 @@ namespace CodeAnalyzer.Test
 
     namespace ConsoleApplication1
     {
-        class TypeName
+      public class TypeNameAppService
         {   
+            public void Method1()
         }
     }";
             var expected = new DiagnosticResult
             {
-                Id = "Analyzer1",
-                Message = String.Format("Type name '{0}' contains lowercase letters", "TypeName"),
-                Severity = DiagnosticSeverity.Warning,
+                Id = "RM0015",
+                Message = "AppService的方法必须用[ActionDescription]标记",
+                Severity = DiagnosticSeverity.Error,
                 Locations =
                     new[] {
-                            new DiagnosticResultLocation("Test0.cs", 11, 15)
+                            new DiagnosticResultLocation("Test0.cs", 13, 25)
                         }
             };
 
             VerifyCSharpDiagnostic(test, expected);
 
-            var fixtest = @"
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Diagnostics;
+            //        var fixtest = @"
+            //using System;
+            //using System.Collections.Generic;
+            //using System.Linq;
+            //using System.Text;
+            //using System.Threading.Tasks;
+            //using System.Diagnostics;
 
-    namespace ConsoleApplication1
-    {
-        class TYPENAME
-        {   
-        }
-    }";
-            VerifyCSharpFix(test, fixtest);
+            //namespace ConsoleApplication1
+            //{
+            //  public class TypeNameAppService
+            //    {   
+            //        [ActionDescription]
+            //        public void Method1()
+            //    }
+            //}";
+            //        VerifyCSharpFix(test, fixtest);
         }
 
         protected override CodeFixProvider GetCSharpCodeFixProvider()
@@ -76,7 +78,7 @@ namespace CodeAnalyzer.Test
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new Rm0015Analyzer();
+            return new Rm0015DiagnosticAnalyzer();
         }
     }
 }

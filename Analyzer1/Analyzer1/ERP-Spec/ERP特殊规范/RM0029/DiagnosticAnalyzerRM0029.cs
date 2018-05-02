@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 
@@ -20,7 +19,7 @@ namespace CodeAnalyzer
         /// <summary>
         ///     分类
         /// </summary>
-        private const string Category = "程序集扫描";
+        private const string Category = "ERP特殊规范";
 
         /// <summary>
         ///     标题
@@ -42,7 +41,7 @@ namespace CodeAnalyzer
         /// </summary>
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
             Category, DiagnosticSeverity.Error, true, Description,
-            CommonHelper.helpLinkUri);
+            CommonHelper.HelpLinkUri);
 
         /// <summary>
         /// Called once at session start to register actions in the analysis context.
@@ -56,8 +55,9 @@ namespace CodeAnalyzer
         private void AnalyzeSymbol(SymbolAnalysisContext context)
         {
             var methodSymbol = (IMethodSymbol)context.Symbol;
-            var baseType = methodSymbol?.ContainingType.BaseType;
-            if (baseType != null && baseType.Name == "AppService" && methodSymbol.IsVirtual == false &&
+
+            if (methodSymbol.ContainingType.Name.EndsWith("AppService") &&
+                methodSymbol.IsVirtual == false &&
                 methodSymbol.DeclaredAccessibility == Accessibility.Public)
             {
                 var diagnostic = Diagnostic.Create(Rule, methodSymbol.Locations[0], methodSymbol.Name);

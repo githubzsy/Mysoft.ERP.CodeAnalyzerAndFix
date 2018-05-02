@@ -1,14 +1,12 @@
 using System.Collections.Immutable;
 using System.Linq;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-namespace CodeAnalyzer
+namespace CodeAnalyzer.ERPÃÿ ‚πÊ∑∂.RM0015
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class Rm0015Analyzer : DiagnosticAnalyzer
+    public class Rm0015DiagnosticAnalyzer : DiagnosticAnalyzer
     {
         public const string DiagnosticId = "RM0015";
 
@@ -22,7 +20,7 @@ namespace CodeAnalyzer
 
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
             Category, DiagnosticSeverity.Error, true, Description,
-            CommonHelper.helpLinkUri);
+            CommonHelper.HelpLinkUri);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
 

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -46,7 +44,7 @@ namespace CodeAnalyzer
         /// </summary>
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
             Category, DiagnosticSeverity.Error, true, Description,
-            CommonHelper.helpLinkUri);
+            CommonHelper.HelpLinkUri);
 
         /// <summary>
         /// Called once at session start to register actions in the analysis context.
