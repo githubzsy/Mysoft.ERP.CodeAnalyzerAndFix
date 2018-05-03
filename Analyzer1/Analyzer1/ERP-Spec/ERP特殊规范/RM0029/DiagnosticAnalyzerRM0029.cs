@@ -39,7 +39,7 @@ namespace CodeAnalyzer.ERP特殊规范.RM0029
         ///     校验规则
         /// </summary>
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
-            Category, DiagnosticSeverity.Error, true, Description,
+            Category, DiagnosticSeverity.Info, true, Description,
             CommonHelper.HelpLinkUri);
 
         /// <summary>

@@ -131,7 +131,6 @@
     <Folder Include="ERP-Spec\ERP特殊规范\RM0016\" />
     <Folder Include="ERP-Spec\ERP特殊规范\RM0017\" />
     <Folder Include="ERP-Spec\ERP特殊规范\RM0018\" />
-    <Folder Include="ERP-Spec\程序集扫描\RM0029\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="nuget.exe">

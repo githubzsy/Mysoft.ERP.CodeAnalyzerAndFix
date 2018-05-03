@@ -18,7 +18,7 @@ namespace CodeAnalyzer.代码扫描.C00005
         private static readonly string Description = "代码扫描>SPEC:C00005;产品代码禁止设计成静态成员，除非工具方法";
 
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
-            Category, DiagnosticSeverity.Error, true, Description,
+            Category, DiagnosticSeverity.Info, true, Description,
             CommonHelper.HelpLinkUri);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
