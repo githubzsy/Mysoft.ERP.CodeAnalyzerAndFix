@@ -5,8 +5,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-// ReSharper disable once CheckNamespace
-namespace CodeAnalyzer
+namespace CodeAnalyzer.代码扫描.C00011
 {
     /// <summary>
     ///     SPEC:C00011; 判断是否为逻辑假，不得使用if(!bb)形式，必须写成if(bb == false)

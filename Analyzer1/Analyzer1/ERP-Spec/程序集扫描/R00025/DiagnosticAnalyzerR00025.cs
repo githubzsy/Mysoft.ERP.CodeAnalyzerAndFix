@@ -2,8 +2,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-// ReSharper disable once CheckNamespace
-namespace CodeAnalyzer
+namespace CodeAnalyzer.程序集扫描.R00025
 {
     /// <summary>
     ///     SPEC:R00025; 服务类型的公开实例方法需要定义成虚方法
