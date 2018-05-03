@@ -57,7 +57,7 @@ namespace CodeAnalyzer
         {
             var methodSymbol = (IMethodSymbol)context.Symbol;
             var baseType = methodSymbol?.ContainingType.BaseType;
-            if (baseType != null && baseType.Name == "AppService" && methodSymbol.IsVirtual == false &&
+            if (baseType != null && baseType.Name == "AppService" && CommonHelper.IsVirtualMethod(baseType, methodSymbol) == false &&
                 methodSymbol.DeclaredAccessibility == Accessibility.Public)
             {
                 var diagnostic = Diagnostic.Create(Rule, methodSymbol.Locations[0], methodSymbol.Name);
