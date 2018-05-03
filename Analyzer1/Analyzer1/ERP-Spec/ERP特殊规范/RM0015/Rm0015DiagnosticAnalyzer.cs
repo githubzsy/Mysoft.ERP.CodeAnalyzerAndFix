@@ -33,6 +33,11 @@ namespace CodeAnalyzer.ERPÃÿ ‚πÊ∑∂.RM0015
         {
             var methodSymbol = (IMethodSymbol)context.Symbol;
 
+            if (methodSymbol.Name.StartsWith("get_") || methodSymbol.Name.StartsWith("set_"))
+            {
+                return;
+            }
+
             var attributeDatas = methodSymbol.GetAttributes();
 
             //if (methodSymbol.ContainingType.BaseType != null &&
