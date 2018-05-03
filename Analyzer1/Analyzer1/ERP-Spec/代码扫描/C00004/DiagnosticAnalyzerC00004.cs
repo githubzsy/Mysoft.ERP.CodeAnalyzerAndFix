@@ -5,8 +5,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-// ReSharper disable once CheckNamespace
-namespace CodeAnalyzer
+namespace CodeAnalyzer.代码扫描.C00004
 {
     /// <summary>
     ///     SPEC：C00004; 尽量使用有序GUID，避免直接使用newguid()

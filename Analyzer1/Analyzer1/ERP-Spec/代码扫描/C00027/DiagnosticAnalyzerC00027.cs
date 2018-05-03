@@ -4,8 +4,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-// ReSharper disable once CheckNamespace
-namespace CodeAnalyzer
+namespace CodeAnalyzer.代码扫描.C00027
 {
     /// <summary>
     /// 每个方法体不允许大于50行（有效代码）
