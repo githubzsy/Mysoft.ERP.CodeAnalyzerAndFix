@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.FindSymbols;
-using Microsoft.CodeAnalysis.Text;
 
 // ReSharper disable once CheckNamespace
 namespace CodeAnalyzer
@@ -45,7 +38,7 @@ namespace CodeAnalyzer
         /// </summary>
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
             Category, DiagnosticSeverity.Error, true, Description,
-            CommonHelper.helpLinkUri);
+            CommonHelper.HelpLinkUri);
 
         /// <summary>
         /// Called once at session start to register actions in the analysis context.
@@ -58,7 +51,7 @@ namespace CodeAnalyzer
 
         private void AnalyzeSymbol(SyntaxNodeAnalysisContext context)
         {
-            var method = context.Node as MethodDeclarationSyntax;
+            var method = (MethodDeclarationSyntax) context.Node;
 
             if (method?.Body != null && method.Body.Statements.Count > 50)
             {
