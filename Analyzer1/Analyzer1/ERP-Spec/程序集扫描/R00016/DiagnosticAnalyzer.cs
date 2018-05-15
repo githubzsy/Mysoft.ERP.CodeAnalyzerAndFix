@@ -19,7 +19,7 @@ namespace CodeAnalyzer.程序集扫描.R00016
         private static readonly string Description = "程序集扫描>SPEC:R00016;方法的参数名称的首字母不是小写开头";
 
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
-            Category, DiagnosticSeverity.Info, true, Description,
+            Category, DiagnosticSeverity.Error, true, Description,
             CommonHelper.HelpLinkUri);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);

@@ -39,7 +39,7 @@ namespace CodeAnalyzer.程序集扫描.R00025
         ///     校验规则
         /// </summary>
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
-            Category, DiagnosticSeverity.Info, true, Description,
+            Category, DiagnosticSeverity.Error, true, Description,
             CommonHelper.HelpLinkUri);
 
         /// <summary>

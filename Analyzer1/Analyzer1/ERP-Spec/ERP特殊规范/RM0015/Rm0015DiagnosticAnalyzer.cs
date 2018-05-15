@@ -19,7 +19,7 @@ namespace CodeAnalyzer.ERP特殊规范.RM0015
         private static readonly string Description = "ERP特殊规范>SPEC:RM0015;AppService的方法必须用[ActionDescription]标记";
 
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
-            Category, DiagnosticSeverity.Info, true, Description,
+            Category, DiagnosticSeverity.Error, true, Description,
             CommonHelper.HelpLinkUri);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
