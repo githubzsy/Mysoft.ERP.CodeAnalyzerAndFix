@@ -54,9 +54,8 @@ namespace CodeAnalyzer.程序集扫描.R00025
         private void AnalyzeSymbol(SymbolAnalysisContext context)
         {
             var methodSymbol = (IMethodSymbol)context.Symbol;
-
-            if (methodSymbol.ContainingType.Name.EndsWith("AppService") &&
-                methodSymbol.IsVirtual == false &&
+            var baseType = methodSymbol?.ContainingType.BaseType;
+            if (baseType != null && baseType.Name == "AppService" && CommonHelper.IsVirtualMethod(baseType, methodSymbol) == false &&
                 methodSymbol.DeclaredAccessibility == Accessibility.Public)
             {
                 var diagnostic = Diagnostic.Create(Rule, methodSymbol.Locations[0], methodSymbol.Name);
