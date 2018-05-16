@@ -44,6 +44,8 @@
     <Compile Include="ERP-Spec\程序集扫描\R00016\DiagnosticAnalyzer.cs" />
     <Compile Include="ERP-Spec\程序集扫描\R00025\DiagnosticAnalyzerR00025.cs" />
     <Compile Include="ERP-Spec\ERP特殊规范\RM0029\DiagnosticAnalyzerRM0029.cs" />
+    <Compile Include="Helper\Extensions.cs" />
+    <Compile Include="Helper\RoslynUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
