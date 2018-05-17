@@ -1,4 +1,5 @@
 ﻿using System.Collections.Immutable;
+using DiagnosticTools.Utilities;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 
@@ -53,12 +54,21 @@ namespace CodeAnalyzer.程序集扫描.R00025
 
         private void AnalyzeSymbol(SymbolAnalysisContext context)
         {
-            var methodSymbol = (IMethodSymbol)context.Symbol;
-            var baseType = methodSymbol?.ContainingType.BaseType;
-            if (baseType != null && baseType.Name == "AppService" && CommonHelper.IsVirtualMethod(baseType, methodSymbol) == false &&
-                methodSymbol.DeclaredAccessibility == Accessibility.Public)
+            IMethodSymbol methodSymbol = (IMethodSymbol) context.Symbol;
+            if (methodSymbol.Name.StartsWith("get_") || methodSymbol.Name.StartsWith("set_"))
             {
-                var diagnostic = Diagnostic.Create(Rule, methodSymbol.Locations[0], methodSymbol.Name);
+                return;
+            }
+            INamedTypeSymbol baseType = methodSymbol.ContainingType.BaseType;
+            if (
+                methodSymbol.DeclaredAccessibility == Accessibility.Public &
+                methodSymbol.ContainingType.TypeKind == TypeKind.Class && 
+                methodSymbol.ContainingType.Name.EndsWith("Service") &&
+                methodSymbol.IsStatic == false &&
+                CommonHelper.IsVirtualMethod(baseType, methodSymbol) == false
+                )
+            {
+                Diagnostic diagnostic = Diagnostic.Create(Rule, methodSymbol.Locations[0], methodSymbol.Name);
                 context.ReportDiagnostic(diagnostic);
             }
         }
