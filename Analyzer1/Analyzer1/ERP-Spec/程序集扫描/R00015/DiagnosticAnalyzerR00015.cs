@@ -59,7 +59,7 @@ namespace CodeAnalyzer.ERP_Spec.程序集扫描.R00015
 
             if (method.Name[0].IsUpper() == false && method.GetAttributes().Any(a => a.AttributeClass.Name == "SpecialName") == false)
             {
-
+                // 此处判断不准确，应当用typeof判断
                 if (method.Parameters.Length == 2
                     && method.DeclaredAccessibility != Accessibility.Public
                     && method.Parameters[0].Type.Name == "Object" && method.Parameters[0].Name == "sender"
