@@ -30,4 +30,4 @@ when you build this project, follow these steps:
  2. Right-click on this project and click "Edit".
  3. Scroll down to the "AfterBuild" target.
  4. In the "Exec" task, change the value inside "Command" after the -OutputDirectory
-    path to point to your local NuGet feed folder.
+    path to point to your local NuGet feed folder .
