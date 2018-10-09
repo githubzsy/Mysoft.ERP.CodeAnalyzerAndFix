@@ -42,6 +42,7 @@
     <Compile Include="Test\Rm0015DiagnosticAnalyzer.cs" />
     <Compile Include="ERP-Spec\代码扫描\C00005\DiagnosticAnalyzer.cs" />
     <Compile Include="ERP-Spec\程序集扫描\R00016\DiagnosticAnalyzer.cs" />
+    <Compile Include="ERP-Spec\程序集扫描\R00017\DiagnosticAnalyzerR00017.cs" />
     <Compile Include="ERP-Spec\程序集扫描\R00025\DiagnosticAnalyzerR00025.cs" />
     <Compile Include="ERP-Spec\ERP特殊规范\RM0029\DiagnosticAnalyzerRM0029.cs" />
     <Compile Include="Helper\Extensions.cs" />
