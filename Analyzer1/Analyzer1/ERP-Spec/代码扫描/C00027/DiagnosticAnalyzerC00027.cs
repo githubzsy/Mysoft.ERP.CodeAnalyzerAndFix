@@ -28,16 +28,16 @@ namespace CodeAnalyzer.代码扫描.C00027
         /// <summary>
         /// 消息内容
         /// </summary>
-        private static readonly string MessageFormat = "每个方法体不允许大于50行（有效代码）";
+        private static readonly string MessageFormat = "每个方法体不允许大于50行（有效代码）,当前方法体有{0}行。";
         /// <summary>
         /// 错误描述
         /// </summary>
-        private static readonly string Description = "代码扫描>SPEC:C00027; 每个方法体不允许大于50行（有效代码）,当前代码已经有{0}";
+        private static readonly string Description = "代码扫描>SPEC:C00027; 每个方法体不允许大于50行（有效代码）";
         /// <summary>
         /// 校验规则
         /// </summary>
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat,
-            Category, DiagnosticSeverity.Error, true, Description,
+            Category, DiagnosticSeverity.Info, true, Description,
             CommonHelper.HelpLinkUri);
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace CodeAnalyzer.代码扫描.C00027
 
                 if (lineCount > 50)
                 {
-                    var diagnostic = Diagnostic.Create(Rule, method.GetLocation(), method.Body.Statements.Count);
+                    var diagnostic = Diagnostic.Create(Rule, method.GetLocation(), lineCount);
                     context.ReportDiagnostic(diagnostic);
                 }
             }
