@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-namespace CodeAnalyzer.ERP_Spec.程序集扫描.R00017
+namespace CodeAnalyzer.ERP_Spec.程序集扫描.R00011
 {
     /// <summary>
-    /// SPEC:R00017; 方法的参数已超过5个
+    /// SPEC:R00011; 不允许使用const，请用static readonly代替
     /// </summary>
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class DiagnosticAnalyzerR00017 : DiagnosticAnalyzer
+    public class DiagnosticAnalyzerR00011 : DiagnosticAnalyzer
     {
         /// <summary>
         /// 分析Id
         /// </summary>
-        public const string DiagnosticId = "R00017";
+        public const string DiagnosticId = "R00011";
 
         /// <summary>
         /// 分类
@@ -28,17 +28,17 @@ namespace CodeAnalyzer.ERP_Spec.程序集扫描.R00017
         /// <summary>
         /// 标题
         /// </summary>
-        private static readonly string Title = "hoof.CodeAnalyzer.SPEC:R00017";
+        private static readonly string Title = "hoof.CodeAnalyzer.SPEC:R00011";
 
         /// <summary>
         /// 消息内容
         /// </summary>
-        private static readonly string MessageFormat = "公开方法的参数已超过5个";
+        private static readonly string MessageFormat = "不允许使用const，请用static readonly代替";
 
         /// <summary>
         /// 错误描述
         /// </summary>
-        private static readonly string Description = "程序集扫描>SPEC:R00017; 公开方法的参数已超过5个";
+        private static readonly string Description = "程序集扫描>SPEC:R00011; 不允许使用const，请用static readonly代替";
 
         /// <summary>
         /// 校验规则
@@ -49,18 +49,19 @@ namespace CodeAnalyzer.ERP_Spec.程序集扫描.R00017
 
         public override void Initialize(AnalysisContext context)
         {
-            context.RegisterSymbolAction(AnalyzeSymbol, SymbolKind.Method);
+            context.RegisterSymbolAction(AnalyzeField, SymbolKind.Field);
         }
-        
-        private void AnalyzeSymbol(SymbolAnalysisContext context)
+
+        /// <summary>
+        /// 验证字段
+        /// </summary>
+        /// <param name="context"></param>
+        private void AnalyzeField(SymbolAnalysisContext context)
         {
-            IMethodSymbol method = (IMethodSymbol)context.Symbol;
-            
-            // 如果是公开方法且参数大于5个
-            if ((method.DeclaredAccessibility == Accessibility.Public)
-                && method.Parameters.Length > 5)
+            IFieldSymbol symbol = (IFieldSymbol)context.Symbol;
+            if (symbol.IsConst)
             {
-                Diagnostic diagnostic = Diagnostic.Create(Rule, method.Locations[0], method.Name);
+                Diagnostic diagnostic = Diagnostic.Create(Rule, symbol.Locations[0], symbol.Name);
                 context.ReportDiagnostic(diagnostic);
             }
         }
