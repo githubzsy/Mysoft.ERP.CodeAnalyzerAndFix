@@ -46,6 +46,8 @@
     <Compile Include="ERP-Spec\程序集扫描\R00011\DiagnosticAnalyzerR00011.cs" />
     <Compile Include="ERP-Spec\程序集扫描\R00013\DiagnosticAnalyzerR00013.cs" />
     <Compile Include="ERP-Spec\程序集扫描\R00014\DiagnosticAnalyzerR00014.cs" />
+    <Compile Include="ERP-Spec\程序集扫描\R00012\DiagnosticAnalyzerR00012.cs" />
+    <Compile Include="ERP-Spec\程序集扫描\R00015\DiagnosticAnalyzerR00015.cs" />
     <Compile Include="ERP-Spec\程序集扫描\R00016\DiagnosticAnalyzer.cs" />
     <Compile Include="ERP-Spec\程序集扫描\R00017\DiagnosticAnalyzerR00017.cs" />
     <Compile Include="ERP-Spec\程序集扫描\R00025\DiagnosticAnalyzerR00025.cs" />

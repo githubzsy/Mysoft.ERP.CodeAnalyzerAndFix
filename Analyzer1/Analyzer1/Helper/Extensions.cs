@@ -32,5 +32,15 @@ namespace DiagnosticTools.Utilities
             return symbol.Interfaces.Any(x => x.Name == typeof(IEnumerable).Name
                                               || x.Name == typeof(IEnumerable<>).Name);
         }
+
+        /// <summary>
+        /// 是大写吗
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static bool IsUpper(this Char c)
+        {
+            return c >= 'A' && c <= 'Z';
+        }
     }
 }
