@@ -41,7 +41,7 @@
     <Compile Include="ERP-Spec\代码扫描\C00011\DiagnosticAnalyzerC00011.cs" />
     <Compile Include="ERP-Spec\代码扫描\C00027\DiagnosticAnalyzerC00027.cs" />
     <Compile Include="ERP-Spec\ERP特殊规范\RM0015\Rm0015CodeFixProvider.cs" />
-    <Compile Include="ERP-Spec\ERP特殊规范\RM0015\Rm0015DiagnosticAnalyzer.cs" />
+    <Compile Include="Test\Rm0015DiagnosticAnalyzer.cs" />
     <Compile Include="ERP-Spec\代码扫描\C00005\DiagnosticAnalyzer.cs" />
     <Compile Include="ERP-Spec\程序集扫描\R00011\DiagnosticAnalyzerR00011.cs" />
     <Compile Include="ERP-Spec\程序集扫描\R00013\DiagnosticAnalyzerR00013.cs" />
@@ -55,6 +55,7 @@
     <Compile Include="Helper\Extensions.cs" />
     <Compile Include="Helper\RoslynUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ERP-Spec\ERP特殊规范\RM0015\Rm0015DiagnosticAnalyzer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagnostic.nuspec">
@@ -156,4 +157,8 @@
       <Output TaskParameter="ConsoleOutput" PropertyName="OutputOfExec" />
     </Exec>
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
