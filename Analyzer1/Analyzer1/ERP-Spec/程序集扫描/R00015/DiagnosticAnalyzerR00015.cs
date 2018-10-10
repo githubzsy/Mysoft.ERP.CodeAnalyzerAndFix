@@ -57,6 +57,11 @@ namespace CodeAnalyzer.ERP_Spec.程序集扫描.R00015
         {
             IMethodSymbol method = (IMethodSymbol)context.Symbol;
 
+            if (method.MethodKind == MethodKind.PropertySet || method.MethodKind == MethodKind.PropertyGet)
+            {
+                return;
+            }
+
             if (method.Name[0].IsUpper() == false && method.GetAttributes().Any(a => a.AttributeClass.Name == "SpecialName") == false)
             {
                 // 此处判断不准确，应当用typeof判断
